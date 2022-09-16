@@ -1,7 +1,7 @@
 export const data = [
   {
     cameFrom: null,
-    text_id: "0",
+    block_id: "0",
     body: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. A deleniti rerum quo, molestiae qui accusantium, aliquam vitae asperiores distinctio officia, voluptate animi corporis inventore illum. Earum, libero nisi veritatis sapiente praesentium totam! Itaque, pariatur! Obcaecati odit repellendus modi. Id commodi odio magnam accusantium sunt quas rem aperiam esse dignissimos officiis, illum voluptatem voluptate, cum iusto quasi perspiciatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptate incidunt alias beatae quibusdam eum dolores ipsam deleniti architecto? Tempore.",
     options: {
       o_01: "Option 1",
@@ -14,7 +14,7 @@ export const data = [
 
   {
     cameFrom: "o_01",
-    text_id: "1",
+    block_id: "1",
     body: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. A deleniti rerum quo, molestiae qui accusantium, aliquam vitae asperiores distinctio officia, voluptate animi corporis inventore illum. Earum, libero nisi veritatis sapiente praesentium totam! Itaque, pariatur! Obcaecati odit repellendus modi. Id commodi odio magnam accusantium sunt quas rem aperiam esse dignissimos officiis, illum voluptatem voluptate, cum iusto quasi perspiciatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptate incidunt alias beatae quibusdam eum dolores ipsam deleniti architecto? Tempore.",
     options: {
       o_11: "Option 5",
@@ -28,7 +28,7 @@ export const data = [
 
   {
     cameFrom: "o_13",
-    text_id: "2",
+    block_id: "2",
     body: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. A deleniti rerum quo, molestiae qui accusantium, aliquam vitae asperiores distinctio officia, voluptate animi corporis inventore illum. Earum, libero nisi veritatis sapiente praesentium totam! Itaque, pariatur! Obcaecati odit repellendus modi. Id commodi odio magnam accusantium sunt quas rem aperiam esse dignissimos officiis, illum voluptatem voluptate, cum iusto quasi perspiciatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptate incidunt alias beatae quibusdam eum dolores ipsam deleniti architecto? Tempore.",
     options: {
       o_21: "Option 9",
@@ -41,7 +41,7 @@ export const data = [
 
   {
     cameFrom: "o_24",
-    text_id: "3",
+    block_id: "3",
     body: "4 (Game Over) Lorem ipsum dolor sit amet consectetur adipisicing elit. A deleniti rerum quo, molestiae qui accusantium, aliquam vitae asperiores distinctio officia, voluptate animi corporis inventore illum. Earum, libero nisi veritatis sapiente praesentium totam! Itaque, pariatur! Obcaecati odit repellendus modi. Id commodi odio magnam accusantium sunt quas rem aperiam esse dignissimos officiis, illum voluptatem voluptate, cum iusto quasi perspiciatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptate incidunt alias beatae quibusdam eum dolores ipsam deleniti architecto? Tempore.",
     gameOver: true
   }
