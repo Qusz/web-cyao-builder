@@ -28,11 +28,13 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 @font-face {
-  font-family: 'Kumbh_Sans';
-  src: url('./fonts/Kumbh_Sans/KumbhSans-SemiBold.ttf');
-
   font-family: 'Epilogue';
   src: url('./fonts/Epilogue/Epilogue-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Kumbh_Sans';
+  src: url('./fonts/Kumbh_Sans/KumbhSans-SemiBold.ttf');
 }
 
 /* Custom properties */
