@@ -46,12 +46,13 @@ p, h1, h2, h3, h4, h5, h6 {
   --ff-title: 'Kumbh_Sans', sans-serif;
   --ff-body: 'Epilogue', sans-serif;
 
+  --spacer-xxl: 7.5rem;
   --spacer-xl: 5rem;
   --spacer-l: 4rem;
   --spacer-m: 2.5rem;
   --spacer-s: 1.5rem;
   --spacer-xs: 1rem;
-  --spacer-xxs: .7rem;
+  --spacer-xxs: .5rem;
 }
 
 /* Utility classes */
@@ -90,7 +91,8 @@ body {
 
 
 .main-box {
-  margin: var(--spacer-l) auto;
+  margin: var(--spacer-xxl) auto var(--spacer-m) auto;
+  padding-bottom: var(--spacer-m);
   background-color: var(--clr-white);
   max-width: 40rem;
   border: 8px solid black;
@@ -100,15 +102,12 @@ body {
 }
 
 .main-box__text {
-  padding: var(--spacer-m) var(--spacer-s);
+  padding: var(--spacer-m) var(--spacer-s) 0 var(--spacer-s);
   margin-top: var(--spacer-s);
 }
 
-.main-box__text > p:first-child {
-  margin-bottom: var(--spacer-xs);
-}
-
 .main-box__options {
+  display: none;
   padding: var(--spacer-m) var(--spacer-s);
 }
 
@@ -142,4 +141,32 @@ body {
 .footer__link {
   text-decoration: none;
   color: var(--clr-main-dark);
+}
+
+
+/* Buttons */
+
+.btn {
+  display: block;
+  cursor: pointer;
+  border: 3px solid black;
+  min-width: 9.375rem;
+  background-color: var(--clr-main-dark);
+  padding-block: var(--spacer-xxs);
+  font-family: var(--ff-title);
+  font-size: 1.3rem;
+}
+
+.btn-play,
+.btn-play-again {
+  margin: 0 auto;
+  margin-top: var(--spacer-m);
+}
+
+.btn:hover {
+  background-color: #729792;
+}
+
+.btn:active {
+  background-color: var(--clr-main-dark);
 }
