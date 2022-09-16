@@ -41,7 +41,8 @@ p, h1, h2, h3, h4, h5, h6 {
 :root {
   --clr-main-dark: #8fbdb7;
   --clr-main-light: #F9EDD6;
-  --clr-white: #FFFFF0;
+  --clr-white: #FFFFF0;;
+  --clr-main-dark--hover: #729792; 
 
   --ff-title: 'Kumbh_Sans', sans-serif;
   --ff-body: 'Epilogue', sans-serif;
@@ -112,7 +113,7 @@ body {
 }
 
 .option {
-  background-color: var(--clr-main-light);
+  background-color: var(--clr-main-dark);
   border: 2px solid black;
   width: 95%;
   margin: 0 auto;
@@ -122,11 +123,11 @@ body {
 }
 
 .option:hover {
-  background-color: var(--clr-main-dark);
+  background-color: var(--clr-main-dark--hover)
 }
 
 .option:active {
-  background-color: #729792;
+  background-color: var(--clr-main-dark)
 }
 
 .option:not(:first-child) {
@@ -164,7 +165,7 @@ body {
 }
 
 .btn:hover {
-  background-color: #729792;
+  background-color: var(--clr-main-dark--hover);
 }
 
 .btn:active {
