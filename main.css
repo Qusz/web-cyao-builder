@@ -144,6 +144,10 @@ body {
   color: var(--clr-main-dark);
 }
 
+.footer__link:hover {
+  color: var(--clr-main-dark--hover);
+} 
+
 
 /* Buttons */
 

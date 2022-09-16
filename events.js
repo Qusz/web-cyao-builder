@@ -1,5 +1,5 @@
 import { data } from './data.js';
-import { PageState, Play, GameOver, Continue } from './states.js';
+import { PageState, NewGame, GameOver, Continue } from './states.js';
 
 
 export function loadEvents() {
@@ -10,7 +10,7 @@ export function loadEvents() {
 
   mainBox.addEventListener('click', (e) => {
     if(e.target.classList.contains('btn-play')) {
-      page.change(new Play())
+      page.change(new NewGame())
     }
 
     if (e.target.classList.contains('option')) {
@@ -18,7 +18,7 @@ export function loadEvents() {
       data.forEach(item => {
         if(item.cameFrom === e.target.id) {
           textBox.textContent = item.body;
-          localStorage.setItem('location', `${item.text_id}`);
+          localStorage.setItem('index', `${data.indexOf(item)}`);
 
           if(item.gameOver === true) {
             page.change(new GameOver(item.body));
@@ -38,13 +38,13 @@ export function loadEvents() {
 
     if (e.target.classList.contains('btn-play-again')) {
       localStorage.clear();
-      page.change(new Play());
+      page.change(new NewGame());
     }
   });
 
   window.addEventListener('DOMContentLoaded', () => {
     if(localStorage.length !== 0) {
-      page.change(new Continue(localStorage.location));
+      page.change(new Continue(localStorage.index));
     } 
   })
 }

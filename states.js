@@ -5,7 +5,7 @@ const optionsBox = document.querySelector('.main-box__options'),
       
 export class PageState {
   constructor() {
-    this.currentState = new DefaultState(this);
+    this.currentState = new DefaultState();
   }
 
   change(state) {
@@ -24,8 +24,9 @@ export class DefaultState {
   }
 };
 
-export class Play {
+export class NewGame {
   constructor() {
+    //* New game always starts at index 0
     textBox.textContent = data[0].body;
     optionsBox.style.display = 'block';
 
@@ -36,7 +37,7 @@ export class Play {
       newOption.textContent = `${data[0].options[key]}`;
       optionsBox.appendChild(newOption);
     } 
-    localStorage.setItem('location', 0);
+    localStorage.setItem('index', 0);
 
   }
 };
@@ -44,7 +45,6 @@ export class Play {
 export class GameOver {
   constructor(gameOverMessage) {
     textBox.textContent = `${gameOverMessage}`;
-
     optionsBox.style.display = 'none';
 
     const button = document.createElement('button');
@@ -55,24 +55,28 @@ export class GameOver {
 };
 
 export class Continue {
-  constructor(textId) {
+  constructor(index) {
 
-    //* Check if the current location === game over and if yes change state 
+    //* Check if the current (location === game over) and if yes, change state 
     const page = new PageState();
-    if (data[textId].gameOver === true) {
-      page.change(new GameOver(data[textId].body));
+    if (data[index].gameOver === true) {
+      page.change(new GameOver(data[index].body));
       return;
     } 
 
-    textBox.textContent = `${data[textId].body}`;
+    textBox.textContent = `${data[index].body}`;
     optionsBox.style.display = 'block';
 
-    for (const key in data[textId].options) {
+    for (const key in data[index].options) {
       const newOption = document.createElement('div');
       newOption.classList = 'option';
       newOption.id = key;
-      newOption.textContent = `${data[textId].options[key]}`;
+      newOption.textContent = `${data[index].options[key]}`;
       optionsBox.appendChild(newOption);
     } 
   }
 };
+
+function addPlayAgainButton() {
+
+}
