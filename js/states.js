@@ -1,7 +1,8 @@
 import data from '../data.json' assert {type: 'json'};
 
 const optionsBox = document.querySelector('.main-box__options'),
-      textBox = document.querySelector('.main-box__text');
+      textBox = document.querySelector('.main-box__text'),
+      container = document.querySelector('.container');
     
 export class PageState {
   constructor() {
@@ -16,12 +17,13 @@ export class PageState {
 export class DefaultState {
   constructor() {
     textBox.textContent = 'The Herbalist is a Choose Your Own Adventure story written by Matthew Walker. Enjoy.';
-    showButton('btn btn-new-game', 'New Game', '2rem auto 0 auto', textBox);
+    showButton('btn btn-new-game', 'New Game', '4rem auto 0 auto', textBox);
   }
 };
 
 export class Play {
   constructor(index) {
+    showButton('btn btn-new-game btn-start-over', 'Start a New Game', '3rem auto 0 auto', container);
 
     //* Check local storage for saved progress
     if (localStorage.length === 0) {
@@ -66,7 +68,7 @@ export class GameOver {
   constructor(gameOverMessage) {
     textBox.textContent = `${gameOverMessage}`;
     optionsBox.style.display = 'none';
-    showButton('btn btn-new-game', 'New Game', '2rem auto 0 auto', textBox);
+    // showButton('btn btn-new-game', 'New Game', '2rem auto 0 auto', textBox);
   }
 };
 

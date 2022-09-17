@@ -71,6 +71,12 @@ p, h1, h2, h3, h4, h5, h6 {
 
 body {
   background-color: var(--clr-main-light);
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 0 auto;
 }
 
 .container {
@@ -137,9 +143,11 @@ body {
   margin-top: var(--spacer-xs);
 }
 
-.copyright {
-  font-family: var(--ff-body);
+.footer {
+  flex-shrink: 0;
   padding-bottom: var(--spacer-xs);
+  margin-top: var(--spacer-m);
+  font-family: var(--ff-body);
 }
 
 .footer__link {
@@ -172,4 +180,12 @@ body {
 
 .btn:active {
   background-color: var(--clr-main-light--hover);
+}
+
+.btn-start-over:hover {
+  background-color: var(--clr-white);
+}
+
+.btn-start-over:active {
+  background-color: var(--clr-main-dark);
 }

@@ -3,12 +3,12 @@ import { PageState, Play, GameOver, WelcomeBack } from './states.js';
 
 
 export function loadEvents() {
-  const mainBox = document.querySelector('.main-box'),
+  const container = document.querySelector('.container'),
         textBox = document.querySelector('.main-box__text'),
         optionsBox = document.querySelector('.main-box__options'),
         page = new PageState();
 
-  mainBox.addEventListener('click', (e) => {
+  container.addEventListener('click', (e) => {
 
     if(e.target.classList.contains('btn-play')) {
       page.change(new Play(localStorage.index))
@@ -41,6 +41,9 @@ export function loadEvents() {
     }
 
     if (e.target.classList.contains('btn-new-game')) {
+      //* Removing 'start a new game button' & options so that they won't add up
+      e.target.remove();
+      optionsBox.innerHTML = ``;
       localStorage.clear();
       page.change(new Play());
     }
