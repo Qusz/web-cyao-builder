@@ -1,4 +1,4 @@
-import data from './data.json' assert {type: 'json'};
+import data from '../data.json' assert {type: 'json'};
 
 const optionsBox = document.querySelector('.main-box__options'),
       textBox = document.querySelector('.main-box__text');
