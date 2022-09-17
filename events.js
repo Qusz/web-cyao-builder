@@ -19,7 +19,7 @@ export function loadEvents() {
 
       data.forEach(item => {
 
-        if(item.option_id === e.target.id) {
+        if(item.option_id.includes(e.target.id)) {
           textBox.textContent = item.body;
           localStorage.setItem('index', `${data.indexOf(item)}`);
 
