@@ -1,8 +1,8 @@
-import { data } from './data.js';
+import data from './data.json' assert {type: 'json'};
 
 const optionsBox = document.querySelector('.main-box__options'),
       textBox = document.querySelector('.main-box__text');
-      
+    
 export class PageState {
   constructor() {
     this.currentState = new DefaultState();

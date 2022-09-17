@@ -1,4 +1,4 @@
-import { data } from './data.js';
+import data from './data.json' assert {type: 'json'};
 import { PageState, Play, GameOver, WelcomeBack } from './states.js';
 
 
@@ -54,5 +54,3 @@ export function loadEvents() {
     } 
   });
 }
-
-
