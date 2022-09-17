@@ -28,28 +28,33 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 @font-face {
-  font-family: 'Kumbh_Sans';
-  src: url('./fonts/Kumbh_Sans/KumbhSans-SemiBold.ttf');
-
   font-family: 'Epilogue';
   src: url('./fonts/Epilogue/Epilogue-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Kumbh_Sans';
+  src: url('./fonts/Kumbh_Sans/KumbhSans-SemiBold.ttf');
 }
 
 /* Custom properties */
 :root {
   --clr-main-dark: #8fbdb7;
   --clr-main-light: #F9EDD6;
-  --clr-white: #FFFFF0;
+  --clr-white: #FFFFF0;;
+  --clr-main-dark--hover: #729792; 
+  --clr-main-light--hover: #e0d5c1;
 
   --ff-title: 'Kumbh_Sans', sans-serif;
   --ff-body: 'Epilogue', sans-serif;
 
+  --spacer-xxl: 7.5rem;
   --spacer-xl: 5rem;
   --spacer-l: 4rem;
   --spacer-m: 2.5rem;
   --spacer-s: 1.5rem;
   --spacer-xs: 1rem;
-  --spacer-xxs: .7rem;
+  --spacer-xxs: .5rem;
 }
 
 /* Utility classes */
@@ -88,30 +93,29 @@ body {
 
 
 .main-box {
-  margin: var(--spacer-l) auto;
+  margin: var(--spacer-xxl) auto var(--spacer-m) auto;
+  padding-bottom: var(--spacer-m);
   background-color: var(--clr-white);
   max-width: 40rem;
   border: 8px solid black;
 
   font-family: var(--ff-body);
   font-size: 1.1em;
+  transition: all 1s ease;
 }
 
 .main-box__text {
-  padding: var(--spacer-m) var(--spacer-s);
+  padding: var(--spacer-m) var(--spacer-s) 0 var(--spacer-s);
   margin-top: var(--spacer-s);
 }
 
-.main-box__text > p:first-child {
-  margin-bottom: var(--spacer-xs);
-}
-
 .main-box__options {
+  display: none;
   padding: var(--spacer-m) var(--spacer-s);
 }
 
 .option {
-  background-color: var(--clr-main-light);
+  background-color: var(--clr-main-dark);
   border: 2px solid black;
   width: 95%;
   margin: 0 auto;
@@ -121,11 +125,12 @@ body {
 }
 
 .option:hover {
-  background-color: var(--clr-main-dark);
+  background-color: var(--clr-main-light);
+  border-width: 4px;
 }
 
 .option:active {
-  background-color: #729792;
+  background-color: var(--clr-main-light--hover);
 }
 
 .option:not(:first-child) {
@@ -140,4 +145,37 @@ body {
 .footer__link {
   text-decoration: none;
   color: var(--clr-main-dark);
+}
+
+.footer__link:hover {
+  color: var(--clr-main-dark--hover);
+} 
+
+
+/* Buttons */
+
+.btn {
+  display: block;
+  cursor: pointer;
+  border: 3px solid black;
+  min-width: 9.375rem;
+  background-color: var(--clr-main-dark);
+  padding-block: var(--spacer-xxs);
+  font-family: var(--ff-title);
+  font-size: 1.3rem;
+  transition: all .3s ease;
+}
+
+.btn-play,
+.btn-play-again {
+  margin: 0 auto;
+  margin-top: var(--spacer-m);
+}
+
+.btn:hover {
+  background-color: var(--clr-main-light);
+}
+
+.btn:active {
+  background-color: var(--clr-main-light--hover);
 }
