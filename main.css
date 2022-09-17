@@ -166,12 +166,6 @@ body {
   transition: all .3s ease;
 }
 
-.btn-play,
-.btn-play-again {
-  margin: 0 auto;
-  margin-top: var(--spacer-m);
-}
-
 .btn:hover {
   background-color: var(--clr-main-light);
 }
