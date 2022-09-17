@@ -43,6 +43,7 @@ p, h1, h2, h3, h4, h5, h6 {
   --clr-main-light: #F9EDD6;
   --clr-white: #FFFFF0;;
   --clr-main-dark--hover: #729792; 
+  --clr-main-light--hover: #e0d5c1;
 
   --ff-title: 'Kumbh_Sans', sans-serif;
   --ff-body: 'Epilogue', sans-serif;
@@ -100,6 +101,7 @@ body {
 
   font-family: var(--ff-body);
   font-size: 1.1em;
+  transition: all 1s ease;
 }
 
 .main-box__text {
@@ -123,11 +125,12 @@ body {
 }
 
 .option:hover {
-  background-color: var(--clr-main-dark--hover)
+  background-color: var(--clr-main-light);
+  border-width: 4px;
 }
 
 .option:active {
-  background-color: var(--clr-main-dark)
+  background-color: var(--clr-main-light--hover);
 }
 
 .option:not(:first-child) {
@@ -160,6 +163,7 @@ body {
   padding-block: var(--spacer-xxs);
   font-family: var(--ff-title);
   font-size: 1.3rem;
+  transition: all .3s ease;
 }
 
 .btn-play,
@@ -169,9 +173,9 @@ body {
 }
 
 .btn:hover {
-  background-color: var(--clr-main-dark--hover);
+  background-color: var(--clr-main-light);
 }
 
 .btn:active {
-  background-color: var(--clr-main-dark);
+  background-color: var(--clr-main-light--hover);
 }
