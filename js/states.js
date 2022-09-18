@@ -1,8 +1,10 @@
-import { data } from './data.js';
+import data from '../data.json' assert {type: 'json'};
+import { showButton } from './utilities.js';
 
 const optionsBox = document.querySelector('.main-box__options'),
-      textBox = document.querySelector('.main-box__text');
-      
+      textBox = document.querySelector('.main-box__text'),
+      container = document.querySelector('.container');
+
 export class PageState {
   constructor() {
     this.currentState = new DefaultState();
@@ -16,14 +18,19 @@ export class PageState {
 export class DefaultState {
   constructor() {
     textBox.textContent = 'The Herbalist is a Choose Your Own Adventure story written by Matthew Walker. Enjoy.';
-    showButton('btn btn-new-game', 'New Game', '2rem auto 0 auto', textBox);
+    showButton('btn btn-new-game', 'New Game', '4rem auto 0 auto', textBox);
   }
 };
 
 export class Play {
   constructor(index) {
+    this.playAgainButton = document.querySelector('.btn-start-over');
 
-    //* Check local storage for saved progress
+    //* Make sure there's only one Start a New Game button
+    if(!this.playAgainButton) {
+      showButton('modal-trigger btn btn-start-over', 'Start a New Game', '3rem auto 0 auto', container);
+    }
+  
     if (localStorage.length === 0) {
 
       //* New game always starts at index 0
@@ -38,7 +45,7 @@ export class Play {
         optionsBox.appendChild(newOption);
       } 
       localStorage.setItem('index', 0);
-
+     
     } else {
       
       //* Check if the current location is "game over"
@@ -66,7 +73,10 @@ export class GameOver {
   constructor(gameOverMessage) {
     textBox.textContent = `${gameOverMessage}`;
     optionsBox.style.display = 'none';
-    showButton('btn btn-new-game', 'New Game', '2rem auto 0 auto', textBox);
+
+    //* Remove new game button with modal prompt & add button w/o the promt for better UX
+    document.querySelector('.btn-start-over').remove();
+    showButton('btn btn-new-game', 'New Game', '3rem auto 0 auto', textBox);
   }
 };
 
@@ -83,11 +93,3 @@ export class WelcomeBack {
     showButton('btn btn-play', 'Continue', 'none', buttonWrapper);
   }
 };
-
-function showButton(className, textContent, margin, parent) {
-  const button = document.createElement('button');
-  button.className = `${className}`;
-  button.textContent = `${textContent}`;
-  button.style.margin = `${margin}`;
-  parent.appendChild(button);
-}
