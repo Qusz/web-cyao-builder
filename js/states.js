@@ -1,9 +1,12 @@
 import data from '../data.json' assert {type: 'json'};
+import { showButton } from './utilities.js';
 
 const optionsBox = document.querySelector('.main-box__options'),
       textBox = document.querySelector('.main-box__text'),
-      container = document.querySelector('.container');
-    
+      container = document.querySelector('.container'),
+      test = document.querySelector('.option'),
+      playAgainButton = document.querySelector('.btn-start-over');
+
 export class PageState {
   constructor() {
     this.currentState = new DefaultState();
@@ -23,7 +26,10 @@ export class DefaultState {
 
 export class Play {
   constructor(index) {
-    showButton('btn btn-new-game btn-start-over', 'Start a New Game', '3rem auto 0 auto', container);
+
+
+
+
 
     //* Check local storage for saved progress
     if (localStorage.length === 0) {
@@ -61,6 +67,9 @@ export class Play {
         optionsBox.appendChild(newOption);
       } 
     }
+
+    console.log(test);
+    showButton('modal-trigger btn btn-start-over', 'Start a New Game', '3rem auto 0 auto', container);
   }
 };
 
@@ -68,7 +77,6 @@ export class GameOver {
   constructor(gameOverMessage) {
     textBox.textContent = `${gameOverMessage}`;
     optionsBox.style.display = 'none';
-    // showButton('btn btn-new-game', 'New Game', '2rem auto 0 auto', textBox);
   }
 };
 
@@ -85,11 +93,3 @@ export class WelcomeBack {
     showButton('btn btn-play', 'Continue', 'none', buttonWrapper);
   }
 };
-
-function showButton(className, textContent, margin, parent) {
-  const button = document.createElement('button');
-  button.className = `${className}`;
-  button.textContent = `${textContent}`;
-  button.style.margin = `${margin}`;
-  parent.appendChild(button);
-}
