@@ -3,9 +3,7 @@ import { showButton } from './utilities.js';
 
 const optionsBox = document.querySelector('.main-box__options'),
       textBox = document.querySelector('.main-box__text'),
-      container = document.querySelector('.container'),
-      test = document.querySelector('.option'),
-      playAgainButton = document.querySelector('.btn-start-over');
+      container = document.querySelector('.container');
 
 export class PageState {
   constructor() {
@@ -26,12 +24,13 @@ export class DefaultState {
 
 export class Play {
   constructor(index) {
+    this.playAgainButton = document.querySelector('.btn-start-over');
 
-
-
-
-
-    //* Check local storage for saved progress
+    //* Make sure there's only one Start a New Game button
+    if(!this.playAgainButton) {
+      showButton('modal-trigger btn btn-start-over', 'Start a New Game', '3rem auto 0 auto', container);
+    }
+  
     if (localStorage.length === 0) {
 
       //* New game always starts at index 0
@@ -46,7 +45,7 @@ export class Play {
         optionsBox.appendChild(newOption);
       } 
       localStorage.setItem('index', 0);
-
+     
     } else {
       
       //* Check if the current location is "game over"
@@ -67,9 +66,6 @@ export class Play {
         optionsBox.appendChild(newOption);
       } 
     }
-
-    console.log(test);
-    showButton('modal-trigger btn btn-start-over', 'Start a New Game', '3rem auto 0 auto', container);
   }
 };
 
@@ -77,6 +73,10 @@ export class GameOver {
   constructor(gameOverMessage) {
     textBox.textContent = `${gameOverMessage}`;
     optionsBox.style.display = 'none';
+
+    //* Remove new game button with modal prompt & add button w/o the promt for better UX
+    document.querySelector('.btn-start-over').remove();
+    showButton('btn btn-new-game', 'New Game', '3rem auto 0 auto', textBox);
   }
 };
 

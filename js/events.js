@@ -20,8 +20,8 @@ export function loadEvents() {
       case e.target.classList.contains('option'):
         //* Clear previous options first
         optionsBox.innerHTML = ``;
-        data.forEach(item => {
 
+        data.forEach(item => {
           if(item.option_id.includes(e.target.id)) {
             textBox.textContent = item.body;
             localStorage.setItem('index', `${data.indexOf(item)}`);
