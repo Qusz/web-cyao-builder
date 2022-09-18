@@ -9,4 +9,3 @@ export function showButton(className, textContent, margin, parent) {
 export function toggleModal(modal) {
   modal.classList.toggle('show-modal');
 }
-
