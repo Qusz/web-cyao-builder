@@ -1,6 +1,6 @@
 import { data } from './data.js';
 import { PageState, Play, GameOver, WelcomeBack } from './states.js';
-import { toggleModal } from './utilities.js';
+import { toggleModal, renderOptions } from './utilities.js';
 
 export function loadEvents() {
   const container = document.querySelector('.container'),
@@ -29,14 +29,8 @@ export function loadEvents() {
               page.change(new GameOver(item.body));
               return;
             }
-      
-            for (const key in item.options) {
-              const newOption = document.createElement('div');
-              newOption.classList = 'option';
-              newOption.id = key;
-              newOption.textContent = `${item.options[key]}`;
-              optionsBox.appendChild(newOption);
-            } 
+            
+            renderOptions(item, null);
           }
         });
         break;

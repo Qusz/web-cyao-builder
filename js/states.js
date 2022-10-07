@@ -1,5 +1,5 @@
 import { data } from './data.js';
-import { showButton } from './utilities.js';
+import { showButton, renderOptions } from './utilities.js';
 
 const optionsBox = document.querySelector('.main-box__options'),
       textBox = document.querySelector('.main-box__text'),
@@ -26,30 +26,23 @@ export class Play {
   constructor(index) {
     this.playAgainButton = document.querySelector('.btn-outer');
 
-    //* Make sure there's only one Start a New Game button
+    // Make sure there's only one Start a New Game button
     if(!this.playAgainButton) {
       showButton('modal-trigger btn btn-outer', 'Start a New Game', '3rem auto 0 auto', container);
     }
 
     if (localStorage.length === 0) {
 
-      //* New game always starts at index 0
+      // New game always starts at index 0
       textBox.textContent = data[0].body;
       optionsBox.style.display = 'block';
 
-      //TODO can probably write showOptions function since it repeats below
-      for (const key in data[0].options) {
-        const newOption = document.createElement('div');
-        newOption.classList = 'option';
-        newOption.id = key;
-        newOption.textContent = `${data[0].options[key]}`;
-        optionsBox.appendChild(newOption);
-      } 
+      renderOptions(data, 0);
       localStorage.setItem('index', 0);
      
     } else {
       
-      //* Check if the current location is "game over"
+      // Check if the current location is "game over"
       const page = new PageState();
       if (data[index].gameOver === true) {
         page.change(new GameOver(data[index].body));
@@ -58,14 +51,7 @@ export class Play {
 
       textBox.textContent = `${data[index].body}`;
       optionsBox.style.display = 'block';
-
-      for (const key in data[index].options) {
-        const newOption = document.createElement('div');
-        newOption.classList = 'option';
-        newOption.id = key;
-        newOption.textContent = `${data[index].options[key]}`;
-        optionsBox.appendChild(newOption);
-      } 
+      renderOptions(data, index);
     }
   }
 };
@@ -75,7 +61,7 @@ export class GameOver {
     textBox.textContent = `${gameOverMessage}`;
     optionsBox.style.display = 'none';
 
-    //* Remove new game button with modal prompt & add button w/o the promt for better UX
+    // Remove new game button w/ modal prompt & add button w/o modal promt for better UX
     document.querySelector('.btn-outer').remove();
     showButton('btn btn-new-game', 'New Game', '3rem auto 0 auto', textBox);
   }
