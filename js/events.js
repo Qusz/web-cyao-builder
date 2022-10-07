@@ -1,7 +1,6 @@
-import data from '../data.json' assert {type: 'json'};
+import { data } from './data.js';
 import { PageState, Play, GameOver, WelcomeBack } from './states.js';
 import { toggleModal } from './utilities.js';
-
 
 export function loadEvents() {
   const container = document.querySelector('.container'),
@@ -20,6 +19,7 @@ export function loadEvents() {
       case e.target.classList.contains('option'):
         //* Clear previous options first
         optionsBox.innerHTML = ``;
+        
         data.forEach(item => {
           if(item.option_id.includes(e.target.id)) {
             textBox.textContent = item.body;
