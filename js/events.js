@@ -17,7 +17,7 @@ export function loadEvents() {
         break;
 
       case e.target.classList.contains('option'):
-        //* Clear previous options first
+        // Clear previous options first
         optionsBox.innerHTML = ``;
         
         data.forEach(item => {
@@ -49,17 +49,17 @@ export function loadEvents() {
     e.preventDefault();
   });
 
+  // If there's a saved game, switch to WelcomeBack state on page load
   window.addEventListener('DOMContentLoaded', () => {
     if(localStorage.length !== 0) {
       page.change(new WelcomeBack());
     } 
   });
 
+  // Modal event
   window.addEventListener('click', (e) => {
     switch(true) {
-      case e.target.classList.contains('modal'):
       case e.target.classList.contains('modal-trigger'):
-      case e.target.classList.contains('close-button'):
       case e.target.classList.contains('btn-modal-close'):
         toggleModal(modal);
         break;

@@ -24,13 +24,15 @@ export class DefaultState {
 
 export class Play {
   constructor(index) {
-    this.playAgainButton = document.querySelector('.btn-start-over');
+    this.playAgainButton = document.querySelector('.btn-outer');
+
+    console.log(this.playAgainButton);
 
     //* Make sure there's only one Start a New Game button
     if(!this.playAgainButton) {
-      showButton('modal-trigger btn btn-start-over', 'Start a New Game', '3rem auto 0 auto', container);
+      showButton('modal-trigger btn btn-outer', 'Start a New Game', '3rem auto 0 auto', container);
     }
-  
+
     if (localStorage.length === 0) {
 
       //* New game always starts at index 0
@@ -90,7 +92,7 @@ export class WelcomeBack {
     buttonWrapper.style.gap = '1.5rem';
     buttonWrapper.style.marginTop = '2rem';
     textBox.appendChild(buttonWrapper);
-    showButton('btn btn-new-game', 'New Game', 'none', buttonWrapper);
+    showButton('btn btn-start-over modal-trigger', 'New Game', 'none', buttonWrapper);
     showButton('btn btn-play', 'Continue', 'none', buttonWrapper);
   }
 };
