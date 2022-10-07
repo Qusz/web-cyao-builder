@@ -1,8 +1,8 @@
 import { data } from './data.js';
 import { showButton, renderOptions } from './utilities.js';
 
-const optionsBox = document.querySelector('.main-box__options'),
-      textBox = document.querySelector('.main-box__text'),
+const optionsBox = document.querySelector('.main-box-options'),
+      textBox = document.querySelector('.main-box-text'),
       container = document.querySelector('.container');
 
 export class PageState {

@@ -19,7 +19,7 @@ export function renderOptions(data, index) {
       newOption.classList = 'option';
       newOption.id = key;
       newOption.textContent = `${data[index].options[key]}`;
-      document.querySelector('.main-box__options').appendChild(newOption);
+      document.querySelector('.main-box-options').appendChild(newOption);
     }
   } else {
     for (const key in data.options) {
@@ -27,7 +27,7 @@ export function renderOptions(data, index) {
       newOption.classList = 'option';
       newOption.id = key;
       newOption.textContent = `${data.options[key]}`;
-      document.querySelector('.main-box__options').appendChild(newOption);
+      document.querySelector('.main-box-options').appendChild(newOption);
     }
   }
 }

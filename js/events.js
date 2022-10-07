@@ -4,8 +4,8 @@ import { toggleModal, renderOptions, animateMainBox } from './utilities.js';
 
 export function loadEvents() {
   const container = document.querySelector('.container'),
-        textBox = document.querySelector('.main-box__text'),
-        optionsBox = document.querySelector('.main-box__options'),
+        textBox = document.querySelector('.main-box-text'),
+        optionsBox = document.querySelector('.main-box-options'),
         modal = document.querySelector('.modal'),
         page = new PageState();
 

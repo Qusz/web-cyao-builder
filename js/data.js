@@ -3,7 +3,7 @@ export const data = [
     id: "0",
     body: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. A deleniti rerum quo, molestiae qui accusantium, aliquam vitae asperiores distinctio officia, voluptate animi corporis inventore illum. Earum, libero nisi veritatis sapiente praesentium totam! Itaque, pariatur! Obcaecati odit repellendus modi. Id commodi odio magnam accusantium sunt quas rem aperiam esse dignissimos officiis, illum voluptatem voluptate, cum iusto quasi perspiciatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptate incidunt alias beatae quibusdam eum dolores ipsam deleniti architecto? Tempore.",
     options: {
-      "o_01": "Option 1",
+      "o_01": "Option 1 ",
       "o_02": "Option 2",
       "o_03": "Option 3",
       "o_04": "Option 4"
@@ -22,7 +22,7 @@ export const data = [
       "o_14": "Option 8"
     },
     gameOver: false,
-    option_id: ["o_01", "o_04"]
+    option_id: ["o_01", "o_02", "o_03", "o_04"]
 
   },
 
@@ -36,13 +36,13 @@ export const data = [
       "o_24": "Option 12"
     },
     gameOver: false,
-    option_id: ["o_13", "o_12"]
+    option_id: ["o_11", "o_12", "o_13", "o_14"]
   },
 
   {
     id: "3",
     body: "4 (Game Over) Lorem ipsum dolor sit amet consectetur adipisicing elit. A deleniti rerum quo, molestiae qui accusantium, aliquam vitae asperiores distinctio officia, voluptate animi corporis inventore illum. Earum, libero nisi veritatis sapiente praesentium totam! Itaque, pariatur! Obcaecati odit repellendus modi. Id commodi odio magnam accusantium sunt quas rem aperiam esse dignissimos officiis, illum voluptatem voluptate, cum iusto quasi perspiciatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptate incidunt alias beatae quibusdam eum dolores ipsam deleniti architecto? Tempore.",
     gameOver: true,
-    option_id: ["o_24", "o_21"]
+    option_id: ["o_21", "o_22", "o_23", "o_24"]
   }
 ]
