@@ -26,8 +26,6 @@ export class Play {
   constructor(index) {
     this.playAgainButton = document.querySelector('.btn-outer');
 
-    console.log(this.playAgainButton);
-
     //* Make sure there's only one Start a New Game button
     if(!this.playAgainButton) {
       showButton('modal-trigger btn btn-outer', 'Start a New Game', '3rem auto 0 auto', container);
@@ -78,7 +76,7 @@ export class GameOver {
     optionsBox.style.display = 'none';
 
     //* Remove new game button with modal prompt & add button w/o the promt for better UX
-    document.querySelector('.btn-start-over').remove();
+    document.querySelector('.btn-outer').remove();
     showButton('btn btn-new-game', 'New Game', '3rem auto 0 auto', textBox);
   }
 };
