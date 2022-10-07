@@ -31,3 +31,12 @@ export function renderOptions(data, index) {
     }
   }
 }
+
+export function animateMainBox() {
+  const box = document.querySelector('.main-box');
+  box.classList.remove('animate-box');
+  
+  // This is here to make browser render changes. Otherwise animation only works on 1st click
+  void box.offsetWidth;
+  box.classList.add('animate-box');
+}

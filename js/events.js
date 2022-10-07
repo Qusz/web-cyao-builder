@@ -1,6 +1,6 @@
 import { data } from './data.js';
 import { PageState, Play, GameOver, WelcomeBack } from './states.js';
-import { toggleModal, renderOptions } from './utilities.js';
+import { toggleModal, renderOptions, animateMainBox } from './utilities.js';
 
 export function loadEvents() {
   const container = document.querySelector('.container'),
@@ -13,13 +13,15 @@ export function loadEvents() {
     switch(true) {
 
       case e.target.classList.contains('btn-play'):
+        animateMainBox();
         page.change(new Play(localStorage.index));
         break;
 
       case e.target.classList.contains('option'):
         // Clear previous options first
         optionsBox.innerHTML = ``;
-        
+        animateMainBox();
+
         data.forEach(item => {
           if(item.option_id.includes(e.target.id)) {
             textBox.textContent = item.body;
@@ -36,11 +38,11 @@ export function loadEvents() {
         break;
 
       case e.target.classList.contains('btn-new-game'):
+        animateMainBox();
         localStorage.clear();
         page.change(new Play());
         break;
     }
-    e.preventDefault();
   });
 
   // If there's a saved game, switch to WelcomeBack state on page load
@@ -61,6 +63,7 @@ export function loadEvents() {
         toggleModal(modal);
         optionsBox.innerHTML = ``;
         localStorage.clear();
+        animateMainBox();
         page.change(new Play());
         break;
     }
