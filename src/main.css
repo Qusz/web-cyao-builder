@@ -82,12 +82,12 @@ Fonts
 
 @font-face {
   font-family: 'Epilogue';
-  src: url('../fonts/Epilogue/Epilogue-Regular.ttf');
+  src: url('../assets/fonts/Epilogue/Epilogue-Regular.ttf');
 }
 
 @font-face {
   font-family: 'Kumbh_Sans';
-  src: url('../fonts/Kumbh_Sans/KumbhSans-SemiBold.ttf');
+  src: url('../assets/fonts/Kumbh_Sans/KumbhSans-SemiBold.ttf');
 }
 
 
