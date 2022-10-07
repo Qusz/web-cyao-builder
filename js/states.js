@@ -1,4 +1,4 @@
-import data from '../data.json' assert {type: 'json'};
+import { data } from './data.js';
 import { showButton } from './utilities.js';
 
 const optionsBox = document.querySelector('.main-box__options'),
@@ -37,6 +37,7 @@ export class Play {
       textBox.textContent = data[0].body;
       optionsBox.style.display = 'block';
 
+      //TODO can probably write showOptions function since it repeats below
       for (const key in data[0].options) {
         const newOption = document.createElement('div');
         newOption.classList = 'option';
