@@ -1,0 +1,18 @@
+{
+  "name": "web-cyao-builder",
+  "version": "1.0.0",
+  "description": "A web Choose Your Own Adventure builder.",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qusz/web-cyao-builder.git"
+  },
+  "author": "Qusz",
+  "license": "ISC",
+  "scripts": {
+    "start": "serve ./"
+  },
+  "devDependencies": {
+    "serve": "^14.1.1"
+  }
+}
