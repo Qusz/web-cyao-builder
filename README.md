@@ -11,6 +11,12 @@ This is a simple no dependencies 'just-add-water' CYAO game builder.
 - Deploy anywhere.
 - Share with friends :)
 
+## Usage dev
+
+- Clone the repo
+- Run ``` $ npm install ```
+- Run ``` $ npm run start ```
+
 ## data.js schema
 data.js is an array or objects. Each object is a block containing:
 
