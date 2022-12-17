@@ -2,7 +2,11 @@
 A web Choose Your Own Adventure builder. 
 
 ## Introduction
-This is a simple no dependencies 'just-add-water' CYAO game builder. 
+This is a simple no dependencies 'just-add-water' CYAO game builder.
+
+## Live preview
+
+https://web-cyao-builder.vercel.app/
 
 ## Usage
 - Clone the repo
