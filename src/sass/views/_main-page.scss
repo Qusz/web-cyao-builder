@@ -1,1 +1,110 @@
 @use '../base/' as *;
+
+body {
+  background-color: $clr-secondary;
+  background-color: $clr-primary;
+}
+
+.main {
+  padding-block: $spacer-xxxl;
+  min-height: 100vh;
+
+  @include d-flex(column, 0);
+  justify-content: center;
+}
+
+.playbox {
+  margin: 0 auto;
+  background-color: $clr-white;
+  max-width: 44rem;
+
+  border: 3px solid $clr-black;
+  border-radius: 30px;
+
+  font-family: $ff-epilogue;
+  font-size: $fs-18;
+
+    &__body {
+      padding: $spacer-xxxl;
+    }
+
+    &__options {
+      display: none;
+      padding: $spacer-l;
+
+      grid-template-columns: 1fr;
+      grid-auto-rows: 1fr;
+      gap: $spacer-m;
+
+      font-family: $ff-epilogue;
+      font-size: $fs-16;
+    }
+}
+
+.option {
+  cursor: pointer;
+  margin: 0 auto;
+  background-color: $clr-secondary;
+  border: 2px solid $clr-black;
+  border-radius: 20px;
+  width: 95%;
+  padding: $spacer-s;
+  transition: all ease .2s;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: $spacer-l;
+  text-align: center;
+  font-family: $ff-kumbh;
+
+    &__link {
+      text-decoration: none;
+      color: $clr-accent;
+
+      transition: all .2s ease;
+
+        &:hover,
+        &:focus {
+          color: darken($clr-accent, 10);
+        }
+
+        &:active {
+          color: $clr-accent;
+        }
+
+    }
+}
+
+.weclome-back-buttons {
+  @include d-flex(row, $spacer-m);
+  justify-content: center;
+  margin-top: $spacer-xxxl;
+}
+
+
+
+//* =================
+//* Mobile
+//* =================
+
+@media screen and (max-width: 480px) {
+  .main {
+    justify-content: flex-start;
+  }
+
+  .playbox {
+    &__body {
+      padding: $spacer-xxxl $spacer-xxs;
+    }
+  }
+
+  .weclome-back-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}

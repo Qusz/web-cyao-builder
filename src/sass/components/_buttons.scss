@@ -1,0 +1,39 @@
+@use '../base/' as *;
+
+@mixin btn-clr($bg-clr, $text-clr) {
+  background-color: $bg-clr;
+  color: $text-clr;
+
+    &:hover,
+    &:focus {
+      background-color: lighten($bg-clr, 10);
+    }
+
+    &:active {
+      background-color: $bg-clr;
+    }
+}
+
+.btn {
+  display: block;
+  min-width: 9.375rem;
+  border: 3px solid $clr-black;
+  border-radius: 15px;
+  background-color: $clr-primary;
+  padding: $spacer-xs $spacer-s;
+
+  cursor: pointer;
+  transition: .3s ease;
+
+  font-family: $ff-kumbh;
+  font-size: $fs-18;
+  font-weight: 600;
+}
+
+.btn-accent {
+  @include btn-clr($clr-accent, $clr-white);
+}
+
+.btn-secondary {
+  @include btn-clr($clr-secondary, $clr-black);
+}

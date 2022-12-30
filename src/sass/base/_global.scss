@@ -1,3 +1,5 @@
+@use './vars' as *;
+
 *,
 *::before,
 *::after {
@@ -74,4 +76,49 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.animate-box {
+  animation: box-animation .3s ease-in-out;
+}
+
+@keyframes box-animation {
+  
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+//* =================
+//* Scrollbar
+//* =================
+
+//* Scrollbar Firefox
+
+* {
+  scrollbar-width: thin;         
+  scrollbar-color: $clr-accent $clr-primary;   
+}
+
+//* Scrollbar Webkit
+
+body::-webkit-scrollbar {
+  width: .4rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: $clr-primary;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: $clr-accent;
 }

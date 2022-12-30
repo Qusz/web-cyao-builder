@@ -3,7 +3,7 @@ export const data = [
     id: "0",
     body: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. A deleniti rerum quo, molestiae qui accusantium, aliquam vitae asperiores distinctio officia, voluptate animi corporis inventore illum. Earum, libero nisi veritatis sapiente praesentium totam! Itaque, pariatur! Obcaecati odit repellendus modi. Id commodi odio magnam accusantium sunt quas rem aperiam esse dignissimos officiis, illum voluptatem voluptate, cum iusto quasi perspiciatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptate incidunt alias beatae quibusdam eum dolores ipsam deleniti architecto? Tempore.",
     options: {
-      "o_01": "Option 1 ",
+      "o_01": "Option 1",
       "o_02": "Option 2",
       "o_03": "Option 3",
       "o_04": "Option 4"

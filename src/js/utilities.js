@@ -1,17 +1,17 @@
-export function showButton(className, textContent, margin, parent) {
+export function showButton(options) {
   const button = document.createElement('button');
-  button.className = `${className}`;
-  button.textContent = `${textContent}`;
-  button.style.margin = `${margin}`;
-  parent.appendChild(button);
+  button.className = `${options.className}`;
+  button.textContent = `${options.textContent}`;
+  button.style.margin = `${options.margin}`;
+  options.parent.appendChild(button);
 }
 
-export function toggleModal(modal) {
+export function toggleModal() {
+  const modal = document.querySelector('.modal');
   modal.classList.toggle('show-modal');
 }
 
 export function renderOptions(data, index) {
-
   // Null check is here to make the function more versatile. In some instances there's no need for index, so null is passed as an argument.
   if (index !== null) {
     for (const key in data[index].options) {
@@ -19,7 +19,7 @@ export function renderOptions(data, index) {
       newOption.classList = 'option';
       newOption.id = key;
       newOption.textContent = `${data[index].options[key]}`;
-      document.querySelector('.main-box-options').appendChild(newOption);
+      document.querySelector('.playbox__options').appendChild(newOption);
     }
   } else {
     for (const key in data.options) {
@@ -27,16 +27,16 @@ export function renderOptions(data, index) {
       newOption.classList = 'option';
       newOption.id = key;
       newOption.textContent = `${data.options[key]}`;
-      document.querySelector('.main-box-options').appendChild(newOption);
+      document.querySelector('.playbox__options').appendChild(newOption);
     }
   }
 }
 
 export function animateMainBox() {
-  const box = document.querySelector('.main-box');
+  const box = document.querySelector('.playbox');
   box.classList.remove('animate-box');
   
-  // This is here to make browser render changes. Otherwise animation only works on 1st click
+  // So that the browser renders changes. Otherwise animation only works on 1st click
   void box.offsetWidth;
   box.classList.add('animate-box');
 }

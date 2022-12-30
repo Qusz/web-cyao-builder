@@ -1,0 +1,63 @@
+@use '../base/' as *;
+
+.modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+
+    &__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $clr-white;
+      padding: $spacer-xxxl $spacer-jumbo;
+      width: clamp(15rem, 35rem, 90%);
+    
+      border: 3px solid $clr-black;
+      border-radius: 30px;
+
+      text-align: center;
+      font-family: $ff-epilogue;
+      font-size: $fs-18;
+    }
+
+    &__buttons {
+      display: flex;
+      justify-content: center;
+      gap: $spacer-m;
+      margin-top: $spacer-xl;
+    }
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+
+
+//* =================
+//* Mobile
+//* =================
+
+@media screen and (max-width: 480px) {
+  .modal {
+    &__content {
+      padding: $spacer-xxxl $spacer-m;
+    }
+
+    &__buttons {
+      flex-direction: column;
+    }
+  }
+}

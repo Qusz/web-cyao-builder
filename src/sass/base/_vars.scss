@@ -1,9 +1,9 @@
-
 //* Colors
-$clr-primary: #FDFCFA;
-$clr-secondary: #16161d;
-$clr-white: #FFF;
-$clr-alert: #800020;
+$clr-primary: #A7D2CB;
+$clr-secondary: #F2D388;
+$clr-accent: #874C62;
+$clr-white: #FFFFF0;
+$clr-black: #222222;
 
 //* Font sizes
 $fs-56: 3.5rem; // 56px
@@ -17,11 +17,11 @@ $fs-14: .875rem; // 14px
 $fs-12: .75rem; // 12px
 
 //* Fonts
-$ff-inter: 'Inter';
-$ff-nunito: 'Nunito';
+$ff-kumbh: 'Kumbh_Sans', sans-serif;
+$ff-epilogue: 'Epilogue', sans-serif;
 
 //* Spacers
-$spacer-jumbo: 3.5rem; // 56px
+$spacer-jumbo: 5rem; // 80px
 $spacer-xxxl: 2.25rem; // 36px
 $spacer-xxl: 1.5rem; // 24px
 $spacer-xl: 1.25rem; // 20px

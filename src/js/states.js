@@ -1,9 +1,11 @@
 import { data, welcome } from './data.js';
 import { showButton, renderOptions } from './utilities.js';
 
-const optionsBox = document.querySelector('.main-box-options'),
-      textBox = document.querySelector('.main-box-text'),
-      container = document.querySelector('.container');
+const refs = {
+  optionsBox: document.querySelector('.playbox__options'),
+  textBox: document.querySelector('.playbox__body'),
+  container: document.querySelector('.playbox-container')
+}
 
 export class PageState {
   constructor() {
@@ -17,31 +19,40 @@ export class PageState {
 
 export class DefaultState {
   constructor() {
-    textBox.textContent = welcome;
-    showButton('btn btn-new-game', 'New Game', '4rem auto 0 auto', textBox);
+    refs.textBox.textContent = welcome;
+    showButton({
+      className: 'btn btn-secondary btn-new-game',
+      textContent: 'New Game',
+      margin: '4rem auto 0 auto',
+      parent: refs.textBox
+    });
   }
 };
 
 export class Play {
   constructor(index) {
     this.playAgainButton = document.querySelector('.btn-outer');
-
+    refs.textBox.style.textAlign = 'start';
+    
     // Make sure there's only one Start a New Game button
-    if(!this.playAgainButton) {
-      showButton('modal-trigger btn btn-outer', 'Start a New Game', '3rem auto 0 auto', container);
+    if (!this.playAgainButton) {
+      showButton({
+        className: 'modal-trigger btn btn-accent btn-outer',
+        textContent: 'Start a New Game',
+        margin: '3rem auto 0 auto',
+        parent: refs.container
+      });
     }
 
     if (localStorage.length === 0) {
-
       // New game always starts at index 0
-      textBox.textContent = data[0].body;
-      optionsBox.style.display = 'block';
+      refs.textBox.textContent = data[0].body;
+      refs.optionsBox.style.display = 'grid';
 
       renderOptions(data, 0);
       localStorage.setItem('index', 0);
      
     } else {
-      
       // Check if the current location is "game over"
       const page = new PageState();
       if (data[index].gameOver === true) {
@@ -49,8 +60,8 @@ export class Play {
         return;
       } 
 
-      textBox.textContent = `${data[index].body}`;
-      optionsBox.style.display = 'block';
+      refs.textBox.textContent = `${data[index].body}`;
+      refs.optionsBox.style.display = 'grid';
       renderOptions(data, index);
     }
   }
@@ -58,25 +69,41 @@ export class Play {
 
 export class GameOver {
   constructor(gameOverMessage) {
-    textBox.textContent = `${gameOverMessage}`;
-    optionsBox.style.display = 'none';
+    refs.textBox.textContent = `${gameOverMessage}`;
+    refs.optionsBox.style.display = 'none';
 
     // Remove new game button w/ modal prompt & add button w/o modal promt for better UX
     document.querySelector('.btn-outer').remove();
-    showButton('btn btn-new-game', 'New Game', '3rem auto 0 auto', textBox);
+    showButton({
+      className: 'btn btn-accent btn-new-game',
+      textContent: 'New Game',
+      margin: '3rem auto 0 auto',
+      parent: refs.textBox
+    });
   }
 };
 
 export class WelcomeBack {
   constructor() {
-    textBox.textContent = 'Welcome back! Would you like to continue your previous game or start a new one?';
+    refs.textBox.textContent = 'Welcome back! Would you like to pick up where you left off or start a new game?';
+    refs.textBox.style.textAlign = 'center';
+
     const buttonWrapper = document.createElement('div');
-    buttonWrapper.classList = 'd-flex btn-wrapper';
-    buttonWrapper.style.justifyContent = 'center';
-    buttonWrapper.style.gap = '1.5rem';
-    buttonWrapper.style.marginTop = '2rem';
-    textBox.appendChild(buttonWrapper);
-    showButton('btn btn-start-over modal-trigger', 'New Game', 'none', buttonWrapper);
-    showButton('btn btn-play', 'Continue', 'none', buttonWrapper);
+    buttonWrapper.classList = 'weclome-back-buttons';
+    refs.textBox.appendChild(buttonWrapper);
+
+    showButton({
+      className: 'btn btn-secondary modal-trigger',
+      textContent: 'New Game',
+      margin: '0',
+      parent: buttonWrapper
+    });
+
+    showButton({
+      className: 'btn btn-secondary btn-play',
+      textContent: 'Continue',
+      margin: '0',
+      parent: buttonWrapper
+    });
   }
 };
